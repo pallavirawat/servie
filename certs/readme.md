@@ -1,10 +1,5 @@
 rawatpallavi.com certs fot fqdn `servie.rawatpallavi.com`
 
-
-```shell
-❯ openssl req -x509 -newkey rsa:4096 -keyout rawatpallavi-key.pem -out rawatpallavi-cert.pem -sha256 -days 365 -nodes
-```
-
 ```shell
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 -keyout servie-key.pem \

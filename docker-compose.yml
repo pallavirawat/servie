@@ -17,12 +17,15 @@ services:
           - LIBRECHAT_HOST=http://lc:3080
         networks:
             - librechat_default
+            - excalidraw_default
             - perplexica_perplexica-network
 # adding all external networks, by default when you run via docker compose it creates a virtual network also if not defined
 # this adds basically DNS entry to make my nginx service also being able to recognise the services within this network by names!
 # feature of docker!!
 networks:
     librechat_default:
+        external: true
+    excalidraw_default:
         external: true
     perplexica_perplexica-network:
         external: true
