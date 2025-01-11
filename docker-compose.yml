@@ -3,15 +3,12 @@ services:
         build:
             context: .
             dockerfile: Dockerfile
-#            target: my-nginx-ssl
         image: pallavirawat/servie:latest
         container_name: servie-nginx
         ports:
             - "80:80"
             - "443:443"
         restart: always
-        extra_hosts:
-        - "host.docker.internal:host-gateway"
         networks:
             - librechat_default
             - excalidraw_default
