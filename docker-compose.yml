@@ -1,0 +1,17 @@
+services:
+    api:
+        build:
+            context: .
+            dockerfile: Dockerfile
+            target: my-nginx-ssl
+        image: my-nginx-ssl:latest
+        container_name: my-nginx-ssl
+        ports:
+            - "80:80"
+            - "443:443"
+        restart: always
+        extra_hosts:
+        - "host.docker.internal:host-gateway"
+        environment:
+          - PERPLEXICA_HOST=http://meilisearch:3000
+          - LIBRECHAT_HOST=http://lc:3080
