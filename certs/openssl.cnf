@@ -1,0 +1,20 @@
+[ req ]
+default_bits       = 4096
+distinguished_name = req_distinguished_name
+req_extensions     = req_ext
+prompt             = no
+
+[ req_distinguished_name ]
+C  = IN
+ST = UK
+L  = UK
+O  = Servie
+OU = IT
+CN = servie.rawatpallavi.com
+
+[ req_ext ]
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = servie.rawatpallavi.com
+DNS.2 = *.servie.rawatpallavi.com

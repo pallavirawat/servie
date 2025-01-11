@@ -1,10 +1,10 @@
 services:
-    api:
+    nginx-servie:
         build:
             context: .
             dockerfile: Dockerfile
-            target: my-nginx-ssl
-        image: my-nginx-ssl:latest
+#            target: my-nginx-ssl
+        image: local/my-nginx-ssl:latest
         container_name: my-nginx-ssl
         ports:
             - "80:80"
@@ -15,3 +15,14 @@ services:
         environment:
           - PERPLEXICA_HOST=http://meilisearch:3000
           - LIBRECHAT_HOST=http://lc:3080
+        networks:
+            - librechat_default
+            - perplexica_perplexica-network
+# adding all external networks, by default when you run via docker compose it creates a virtual network also if not defined
+# this adds basically DNS entry to make my nginx service also being able to recognise the services within this network by names!
+# feature of docker!!
+networks:
+    librechat_default:
+        external: true
+    perplexica_perplexica-network:
+        external: true
